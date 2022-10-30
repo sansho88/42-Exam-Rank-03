@@ -51,6 +51,7 @@ int ft_printf(const char *str, ...)
 			g_var += write(1, &str[i], 1);
 		i++;
 	}
+	va_end(va);
 	return (g_var);
 }
 
@@ -58,8 +59,8 @@ int ft_printf(const char *str, ...)
 #include <limits.h>
 int main()
 {
-	int i = ft_printf("--\nft_printf_exam = %x\n--\n", INT_MIN);
+	int i = ft_printf("--\nft_printf_exam = %x\n--\n", INT_MAX);
 	printf("res = %d\n", i);
-	int j = printf("--\n   printf      = %x\n--\n", INT_MIN);
+	int j = printf("--\n   printf      = %x\n--\n", INT_MAX);
 	printf("res = %d\n", j);
 }
