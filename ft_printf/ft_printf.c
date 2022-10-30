@@ -43,7 +43,7 @@ int ft_printf(const char *str, ...)
 			}
 			if (str[i] == 'x')
 			{
-				long long hexa = va_arg(va, int);
+				long long hexa = va_arg(va, unsigned int);
 				ft_itoa_base(hexa, 16, "0123456789abcdef");
 			}
 		}
@@ -58,8 +58,8 @@ int ft_printf(const char *str, ...)
 #include <limits.h>
 int main()
 {
-	int i = ft_printf("--\nft_printf_exam = %d\n--\n", INT_MAX);
+	int i = ft_printf("--\nft_printf_exam = %x\n--\n", INT_MIN);
 	printf("res = %d\n", i);
-	int j = printf("--\n   printf      = %d\n--\n", INT_MAX);
+	int j = printf("--\n   printf      = %x\n--\n", INT_MIN);
 	printf("res = %d\n", j);
 }
