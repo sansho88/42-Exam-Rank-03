@@ -1,16 +1,16 @@
 #include <unistd.h>
 #include <stdarg.h>
 
-int g_var = 0;
+int	g_var = 0;
 
-void ft_itoa_base(long digit,int length,char *base)
+void	ft_itoa_base(long digit, int length, char *base)
 {
 	if (digit >= length)
 		ft_itoa_base(digit/length, length, base);
 	g_var += write(1, &base[digit % length], 1);
 }
 
-int ft_printf(const char *str, ...)
+int	ft_printf(const char *str, ...)
 {
 	g_var = 0;
 	va_list va;
@@ -57,10 +57,10 @@ int ft_printf(const char *str, ...)
 
 #include <stdio.h>
 #include <limits.h>
-int main()
+int	main(void)
 {
-	int i = ft_printf("--\nft_printf_exam = %x\n--\n", INT_MAX);
+	int i = ft_printf("--\nft_printf_exam = %d\n--\n", 0);
 	printf("res = %d\n", i);
-	int j = printf("--\n   printf      = %x\n--\n", INT_MAX);
+	int j = printf("--\n   printf      = %d\n--\n", 0);
 	printf("res = %d\n", j);
 }

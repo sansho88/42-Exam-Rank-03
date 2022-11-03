@@ -12,12 +12,12 @@
 
 #include "libft.h"
 
-char	*digit_equal_zero(void)
+char	*digit_equal_zero(char *base)
 {
 	char	*str;
 
 	str = malloc(sizeof(char) * 2);
-	str[0] = '0';
+	str[0] = base[0];
 	str[1] = '\0';
 	return (str);
 }
@@ -43,7 +43,7 @@ char	*ft_itoa_base(int digit, int length, char *base, char *str)
 	if (!str)
 	{
 		if (digit == 0)
-			return (digit_equal_zero());
+			return (digit_equal_zero(base));
 		str = ft_calloc(sizeof(char), (i + 1));
 		if (!str)
 			return (NULL);
