@@ -7,3 +7,5 @@ I pass with get_next_line i do not know if ft_printf is all right but normally y
 Warning you need to understand this code. Exam is not here to memorize 3 line !!!
 
 get_next_line_3_line can be patched sorry.
+
+ft_itoa_base.c is for your lib =).
