@@ -3,10 +3,10 @@
 
 int	g_var = 0;
 
-void	ft_itoa_base(long digit, int length, char *base)
+void	ft_put_base(long digit, int length, char *base)
 {
 	if (digit >= length)
-		ft_itoa_base(digit/length, length, base);
+		ft_put_base(digit/length, length, base);
 	g_var += write(1, &base[digit % length], 1);
 }
 
@@ -39,12 +39,12 @@ int	ft_printf(const char *str, ...)
 					g_var += write(1, "-", 1);
 					decimal = -decimal;
 				}
-				ft_itoa_base(decimal, 10, "0123456789");
+				ft_put_base(decimal, 10, "0123456789");
 			}
 			if (str[i] == 'x')
 			{
 				long long hexa = va_arg(va, unsigned int);
-				ft_itoa_base(hexa, 16, "0123456789abcdef");
+				ft_put_base(hexa, 16, "0123456789abcdef");
 			}
 		}
 		else
