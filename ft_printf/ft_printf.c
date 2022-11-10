@@ -14,6 +14,9 @@ int	ft_printf(const char *str, ...)
 {
 	g_var = 0;
 	va_list va;
+
+	if (!str)
+		return (0);
 	va_start(va, str);
 	int i = 0;
 	while(str[i])
@@ -25,7 +28,9 @@ int	ft_printf(const char *str, ...)
 			{
 				char *string = va_arg(va, char *);
 				int string_count = 0;
-				while (string[string_count])
+				if (!string)
+					g_var += write(1, "(null)", 6);
+				while (string && string[string_count])
 				{
 					g_var += write(1, &string[string_count], 1);
 					string_count++;
